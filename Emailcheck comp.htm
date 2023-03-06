@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+<title>New Page 6</title>
+</head>
+
+<body style=scrollbar-base-color:navy>
+<script language="javascript">
+
+function validemail(email){
+invalidchar="/:,;"
+if(email.value=""){
+return false
+}
+for(i=0;i<invalidchar.length;i++){
+badchar=invalidchar.charAt(i)
+if(email.indexOf(badchar,0)>-1){
+return false
+}
+}
+atpos=email.indexOf("@",1)
+if(atpos==-1){
+return false
+}
+if(email.indexOf("@",atpos+1)>-1){
+return false
+}
+aaa=email.indexOf(".",atpos)
+if(aaa==-1){
+return false
+}
+if (aaa+3>email.length){return false
+}
+
+return true
+}
+
+function submitIt(carform){
+if(!validemail(carform.emailaddr.value)){
+alert("please fill box correct");
+
+return false;
+}
+
+return true
+}
+
+
+</script>
+<form method="POST"  name=carform onsubmit=submitIt(this) action="">
+ <p>
+  <input type="text" name="emailaddr" size="20"></p>
+  <p><input type="submit" value="Submit" name="B1">
+  <input type="reset" value="Reset" name="B2"></p>
+</form>
+</body>
+
+</html>
